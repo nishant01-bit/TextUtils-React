@@ -47,19 +47,19 @@ export default function TextForm(props) {
         <div className="mb-3" >
         <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode ==='dark'? 'grey': props.mode === 'success'? 'green' : 'white', color: props.mode ==='light'? 'black': 'white'}} id="myBox" rows="10"></textarea>
     </div>
-    <button className="btn btn-primary mx-1" onClick={handleUpClick} style={buttonStyle}>Convert to Uppercase</button>
-    <button className="btn btn-primary mx-1" onClick={handleLowClick} style={buttonStyle}>Convert to Lowercase</button>
-    <button className="btn btn-primary mx-1" onClick={clearText} style={buttonStyle}>Clear Text</button>
-    <button className="btn btn-primary mx-1" onClick={reverseText} style={buttonStyle}>Reverse Text</button>
-    <button className="btn btn-primary mx-1" onClick={generateText} style={buttonStyle}>Generate Text</button>
+    <button disable = {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUpClick} style={buttonStyle}>Convert to Uppercase</button>
+    <button disable = {text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowClick} style={buttonStyle}>Convert to Lowercase</button>
+    <button disable = {text.length===0} className="btn btn-primary mx-1 my-1" onClick={clearText} style={buttonStyle}>Clear Text</button>
+    <button disable = {text.length===0} className="btn btn-primary mx-1 my-1" onClick={reverseText} style={buttonStyle}>Reverse Text</button>
+    <button disable = {text.length===0} className="btn btn-primary mx-1 my-1" onClick={generateText} style={buttonStyle}>Generate Text</button>
 </div>
 <div className="container my-3" style={{backgroundColor: props.mode ==='dark'? 'grey': props.mode === 'success'? 'green' : 'white', color: props.mode ==='light'? 'black': 'white'}}>
     <h3>Your Text Summary</h3>
-    <p>{text.split(" ").filter(word=>word.trim()!=="").length} words and {text.length} characters</p>
-    <p>{0.008 *text.split(" ").length} minutes to read </p>
-    <h3>Preview</h3>
+    <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+    <p>{0.008 *text.split(/\s+/).filter((element)=>{return element.length!==0}).length} minutes to read </p>
+    <h3>Enter something in textbox to preview it</h3>
     <p>{text}</p>
-
+    
 </div>
 </>
   )

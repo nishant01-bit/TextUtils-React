@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-//import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
@@ -71,6 +71,7 @@ function App() {
             />
           }
         /> */}
+        <About mode={mode}/>
         <TextForm showAlert={showAlert} heading="Enter any text below" mode={mode}/>
         {/*<Route
           path="/about"
